@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component, effect, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, signal, inject, LOCALE_ID } from '@angular/core';
 import { DatePipe, LowerCasePipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
+import { LocaleService } from '../../services/locale.service';
+import { availableLocales } from '../../services/locale.service';
 
 
 @Component({
@@ -9,6 +11,9 @@ import { DatePipe, LowerCasePipe, TitleCasePipe, UpperCasePipe } from '@angular/
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class BasicPage {
+
+  localeService = inject(LocaleService)
+  currentLocale = signal(inject(LOCALE_ID))
 
   nameLower = signal('ciro');
   nameUpper = signal('CIRO');
@@ -24,4 +29,9 @@ export default class BasicPage {
     
     onCleanup(() => clearInterval(interval));
   });
+
+  changeLocale(locale: availableLocales) {
+    this.localeService.changeLocale(locale);
+  }
+
 }
