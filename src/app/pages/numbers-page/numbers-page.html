@@ -5,21 +5,27 @@
 
 <div class="stats  stats-vertical lg:stats-horizontal shadow w-full">
     <div class="stat place-items-center">
-      <div class="stat-title">Lowercase pipe</div>
-      <div class="stat-value"></div>
-      <div class="stat-desc"></div>
+      <div class="stat-title">Number: '1.2-2'</div><!-- 1.2-2: 1 dígito antes del punto, 2 dígitos después del punto -->
+      <div class="stat-value text-primary">{{totalSells() | number:'1.2-2'}}</div>
+      <div class="stat-desc text-primary">{{totalSells()}}</div>
+    </div>
+
+    <div class="stat place-items-center">
+        <div class="stat-title">Number: '1.1-2'</div><!-- 1.2-2: 1 dígito antes del punto, 2 dígitos después del punto -->
+        <div class="stat-value text-secondary">{{totalSells() + 1234 | number:'1.1-2'}}</div>
+        <div class="stat-desc text-secondary">{{totalSells()}}</div>
+      </div>
+  
+    <div class="stat place-items-center">
+      <div class="stat-title">Currency: 'CAD'</div>
+      <div class="stat-value text-primary">{{totalSells() | currency:'CAD':'symbol-narrow':'1.4-4'}}</div><!-- 1.4-4: 1 dígito antes del punto, 4 dígitos después del punto -->
+      <div class="stat-desc text-primary">{{totalSells()}}</div>
     </div>
   
     <div class="stat place-items-center">
-      <div class="stat-title">Uppercase pipe</div>
-      <div class="stat-value text-secondary"></div>
-      <div class="stat-desc text-secondary"></div>
-    </div>
-  
-    <div class="stat place-items-center">
-      <div class="stat-title">Titlecase pipe</div>
-      <div class="stat-value text-secondary"></div>
-      <div class="stat-desc text-secondary"></div>
+      <div class="stat-title">Percent pipe</div>
+      <div class="stat-value text-secondary">{{percent() | percent:'1.2-2'}}</div>
+      <div class="stat-desc text-secondary">{{percent()}}</div>
     </div>
   </div>
 
