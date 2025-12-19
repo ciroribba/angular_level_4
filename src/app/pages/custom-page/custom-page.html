@@ -1,1 +1,18 @@
-<p>custom-page works!</p>,
+<section class="mx-5 mb-5">
+    <h1 class="text-2xl font-bold">Custom Pipes</h1>
+    <p class="text-lg font-thin">Pipes personalizados, no incluidos en Angular</p>
+  </section>
+
+<div class="stats shadow">
+    <div class="stat">
+      <div class="stat-title">Toggle Case</div>
+      <!-- <div class="stat-value">{{ name() | toggleCase : toggleCaseInitial() }}</div> -->
+      <div class="stat-value">{{ name() | toggleCase : toggleCaseInitial() }}</div>
+      <div class="stat-desc">{{ name() }}</div>
+
+      <!-- <button class="btn btn-primary" (click)="toggleCase()"> -->
+        <button class="btn btn-primary" (click)="toggleCaseInitial.set(!toggleCaseInitial())">
+        Toggle Case
+      </button>
+    </div>
+  </div>
